@@ -20,25 +20,25 @@ export default function RestaurantCard({Restaurant}) {
       <CardMedia
         component="img"
         height="170"
-        image = {IMG_URL + Restaurant.data.cloudinaryImageId}
+        image = {IMG_URL + Restaurant.info.cloudinaryImageId}
         alt="Burger King"
       />
 
       <CardContent sx={{ pb: 1 }}>
         <Typography variant="h6" fontWeight={600}>
-         {Restaurant.data.name}
+         {Restaurant.info.name}
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
-          {Restaurant.data.cuisines.join(',')}
+          {Restaurant.info.cuisines.join(',')}
         </Typography>
 
         <Typography variant="body2" sx={{ mt: 0.5 }}>
-          ⭐ {Restaurant.data.avgRating} stars
+          ⭐ {Restaurant.info.avgRating} stars
         </Typography>
 
          <Typography variant="body2" sx={{ mt: 0.5 }}>
-           {Restaurant.data.slaString}
+           {Restaurant.info.slaString}
         </Typography>
       </CardContent>
 
