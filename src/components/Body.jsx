@@ -24,13 +24,22 @@ export const Body = () => {
 
   const [restaurants,setRestaurants] = useState(restaurantList) ;
   const [searchText , setSearchText] = useState("") ;
-  const [filterResults , setFilterResults] = useState(restaurants) ;
 
   const filterData = (searchText)=>{
     return restaurantList.filter((restaurant)=> restaurant.data.name.toLowerCase().includes(searchText.toLowerCase()))
   }
 
+  useEffect(()=>{
+    getRestaurantList() ;
+  },[])
 
+  async function getRestaurantList(){
+    const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.91080&lng=88.40010&collection=83639") ;
+    const data = await response.json() ;
+    console.log(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
+  }
+
+  console.log("render")
 
   return (
     <>
