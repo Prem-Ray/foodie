@@ -34,7 +34,7 @@ export const Body = () => {
   },[])
 
   async function getRestaurantList(){
-    const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.91080&lng=88.40010&collection=83639") ;
+    const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.91080&lng=88.40010&collection=83639&page_type=DESKTOP_WEB_LISTING") ;
     const dataResponse = await response.json() ;
     const apiData = dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants ;
     setRestaurants(apiData)
