@@ -34,11 +34,16 @@ export const Body = () => {
   },[])
 
   async function getRestaurantList(){
-    const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.91080&lng=88.40010&collection=83639&page_type=DESKTOP_WEB_LISTING") ;
+    try {
+      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.91080&lng=88.40010&page_type=DESKTOP_WEB_LISTING") ;
     const dataResponse = await response.json() ;
-    const apiData = dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants ;
-    setRestaurants(apiData)
+    const apiData1 = dataResponse.data.cards[1].card.card.gridElements.infoWithStyle.restaurants ;
+    const apiData2 = dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants ;
+    setRestaurants(apiData1)
     console.log('data',dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
+    } catch (error) {
+      console.log("error",error)
+    }
   }
 
   console.log("render")
