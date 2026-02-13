@@ -1,9 +1,10 @@
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { restaurantList } from "../constant";
 import { styled } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { Shimmer } from "./Shimmer";
 
 export const StyledRestaurantCards = styled("div")(() => ({
   display: "grid",
@@ -20,35 +21,50 @@ export const StyledInputSection = styled("div")(({ theme }) => ({
   margin: "2rem 0",
 }));
 
+const filterData = (searchText, restaurants) => {
+    return restaurants.filter((restaurant) =>
+      restaurant?.info?.name?.toLowerCase().includes(searchText.toLowerCase()),
+    );
+  };
+
 export const Body = () => {
+  const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurants,setFilteredRestaurants] = useState([]) ;
+  const [searchText, setSearchText] = useState("");
 
-  const [restaurants,setRestaurants] = useState(restaurantList) ;
-  const [searchText , setSearchText] = useState("") ;
 
-  const filterData = (searchText,restaurants)=>{
-    return restaurants.filter((restaurant)=> restaurant?.info?.name?.toLowerCase().includes(searchText.toLowerCase()))
-  }
+  useEffect(() => {
+    getRestaurantList();
+  }, []);
 
-  useEffect(()=>{
-    getRestaurantList() ;
-  },[])
-
-  async function getRestaurantList(){
+  async function getRestaurantList() {
     try {
-      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.91080&lng=88.40010&page_type=DESKTOP_WEB_LISTING") ;
-    const dataResponse = await response.json() ;
-    const apiData1 = dataResponse.data.cards[1].card.card.gridElements.infoWithStyle.restaurants ;
-    const apiData2 = dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants ;
-    setRestaurants(apiData1)
-    console.log('data',dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
+      const response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.91080&lng=88.40010&page_type=DESKTOP_WEB_LISTING",
+      );
+      const dataResponse = await response.json();
+
+      const apiData1 =
+        dataResponse.data.cards[1].card.card.gridElements.infoWithStyle
+          .restaurants;
+
+      const apiData2 =
+        dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
+
+      setRestaurants(apiData1);
+      setFilteredRestaurants(apiData1) ;
+
     } catch (error) {
-      console.log("error",error)
+      console.log("error", error);
     }
   }
 
-  console.log("render")
+  console.log("render");
 
-  return (
+  return restaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <StyledInputSection>
         <TextField
@@ -62,10 +78,10 @@ export const Body = () => {
             },
           }}
           value={searchText}
-          onChange={(e)=>setSearchText(e.target.value)}
-          onKeyDown={(e)=>{
-            if(e.key === 'Enter'){
-              setRestaurants(filterData(searchText,restaurants))
+          onChange={(e) => setSearchText(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setRestaurants(filterData(searchText, restaurants));
             }
           }}
         />
@@ -82,18 +98,16 @@ export const Body = () => {
               backgroundColor: "#e46f12",
             },
           }}
-
-          onClick={()=>{
-            const filterResponse = filterData(searchText,restaurants) ;
-            console.log(filterResponse)
-            setRestaurants(filterResponse) ;
+          onClick={() => {
+            const filterResponse = filterData(searchText, restaurants);
+            setFilteredRestaurants(filterResponse);
           }}
         >
           Search
         </Button>
       </StyledInputSection>
       <StyledRestaurantCards>
-        {restaurants.map((restaurant) => (
+        {filteredRestaurants.map((restaurant) => (
           <RestaurantCard id={restaurant?.info?.id} Restaurant={restaurant} />
         ))}
       </StyledRestaurantCards>
