@@ -5,6 +5,8 @@ import { styled } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Shimmer } from "./Shimmer";
+import { Error } from "./Error";
+import EmptyResult from "./EmptyResult";
 
 export const StyledRestaurantCards = styled("div")(() => ({
   display: "grid",
@@ -22,16 +24,16 @@ export const StyledInputSection = styled("div")(({ theme }) => ({
 }));
 
 const filterData = (searchText, restaurants) => {
-    return restaurants.filter((restaurant) =>
-      restaurant?.info?.name?.toLowerCase().includes(searchText.toLowerCase()),
-    );
-  };
+  return restaurants.filter((restaurant) =>
+    restaurant?.info?.name?.toLowerCase().includes(searchText.toLowerCase()),
+  );
+};
 
 export const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
-  const [filteredRestaurants,setFilteredRestaurants] = useState([]) ;
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     getRestaurantList();
@@ -53,14 +55,16 @@ export const Body = () => {
           ?.restaurants;
 
       setRestaurants(apiData1);
-      setFilteredRestaurants(apiData1) ;
-
+      setFilteredRestaurants(apiData1);
     } catch (error) {
       console.log("error", error);
+      setHasError(true);
     }
   }
 
-  console.log("render");
+  if (hasError) {
+    return <Error />;
+  }
 
   return restaurants.length === 0 ? (
     <Shimmer />
