@@ -58,12 +58,11 @@ export const Body = () => {
       //  setRestaurants(restaurants || []);
       // setFilteredRestaurants(restaurants || []);
 
-      const apiData1 =
-        dataResponse?.data?.cards
-    ?.map((card) =>
-      card?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    )
-    ?.find((res) => res && res.length > 0);
+      const apiData1 = dataResponse?.data?.cards
+        ?.map(
+          (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
+        )
+        ?.find((res) => res && res.length > 0);
 
       const apiData2 =
         dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
@@ -80,53 +79,54 @@ export const Body = () => {
   }
   console.log(filteredRestaurants);
   if (hasError) return <Error />;
-if (isLoading) return <Shimmer />;
+  if (isLoading) return <Shimmer />;
 
   return (
-   
-      <>
-        <StyledInputSection>
-          <TextField
-            label="Search restaurants..."
-            variant="outlined"
-            sx={{
-              width: "320px",
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "12px",
-                backgroundColor: "#fff",
-              },
-            }}
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                const filtered = filterData(searchText, restaurants);
-                setFilteredRestaurants(filtered);
-              }
-            }}
-          />
-          <Button
-            variant="contained"
-            sx={{
-              height: "56px",
+    <>
+      <StyledInputSection>
+        <TextField
+          label="Search restaurants..."
+          variant="outlined"
+          sx={{
+            width: "320px",
+            "& .MuiOutlinedInput-root": {
               borderRadius: "12px",
-              px: "2rem",
-              textTransform: "none",
-              fontWeight: 600,
-              backgroundColor: "#fc8019",
-              "&:hover": {
-                backgroundColor: "#e46f12",
-              },
-            }}
-            onClick={() => {
-              const filterResponse = filterData(searchText, restaurants);
-              setFilteredRestaurants(filterResponse);
-            }}
-          >
-            Search
-          </Button>
-        </StyledInputSection>
-      { filteredRestaurants.length===0 ?<EmptyResult/> :  (
+              backgroundColor: "#fff",
+            },
+          }}
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              const filtered = filterData(searchText, restaurants);
+              setFilteredRestaurants(filtered);
+            }
+          }}
+        />
+        <Button
+          variant="contained"
+          sx={{
+            height: "56px",
+            borderRadius: "12px",
+            px: "2rem",
+            textTransform: "none",
+            fontWeight: 600,
+            backgroundColor: "#fc8019",
+            "&:hover": {
+              backgroundColor: "#e46f12",
+            },
+          }}
+          onClick={() => {
+            const filterResponse = filterData(searchText, restaurants);
+            setFilteredRestaurants(filterResponse);
+          }}
+        >
+          Search
+        </Button>
+      </StyledInputSection>
+      {filteredRestaurants.length === 0 ? (
+        <EmptyResult />
+      ) : (
         <StyledRestaurantCards>
           {filteredRestaurants.map((restaurant) => (
             <RestaurantCard
@@ -134,8 +134,8 @@ if (isLoading) return <Shimmer />;
               Restaurant={restaurant}
             />
           ))}
-        </StyledRestaurantCards>)}
-      </>
-    
+        </StyledRestaurantCards>
+      )}
+    </>
   );
-}
+};
