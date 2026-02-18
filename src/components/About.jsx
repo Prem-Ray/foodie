@@ -4,8 +4,6 @@ import { Navbar } from "./Navbar";
 export const About = () => {
   return (
     <>
-        <Navbar/>
-   
     <Container maxWidth="md" sx={{ mt: 6, mb: 6 }}>
       <Paper
         elevation={3}

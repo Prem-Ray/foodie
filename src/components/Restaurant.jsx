@@ -1,0 +1,106 @@
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { IMG_URL } from "../constant";
+
+import {
+  Container,
+  Paper,
+  Grid,
+  Typography,
+  Box,
+  CircularProgress,
+} from "@mui/material";
+import CardMedia from "@mui/material/CardMedia";
+
+export const Restaurant = () => {
+  const { resId } = useParams();
+  const [restaurant, setRestaurant] = useState(null);
+
+  useEffect(() => {
+    getRestaurantInfo();
+  }, []);
+
+  async function getRestaurantInfo() {
+    try {
+      const data = await fetch(
+        `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.91080&lng=88.40010&restaurantId=${resId}`
+      );
+
+      const response = await data.json();
+      setRestaurant(response);
+    } catch (error) {
+      console.error("Error fetching restaurant:", error);
+    }
+  }
+
+  const restaurantName =
+    restaurant?.data?.cards?.[0]?.card?.card?.text;
+
+  const mainRestaurantInfoCard = restaurant?.data?.cards?.find(
+    (cardWrapper) =>
+      cardWrapper?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
+  );
+
+  const mainRestaurantInfo = mainRestaurantInfoCard?.card?.card?.info;
+  const imageId = mainRestaurantInfo?.cloudinaryImageId;
+
+  if (!restaurant) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 10 }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  return (
+    <Container maxWidth="md" sx={{ mt: 5 }}>
+      <Paper elevation={4} sx={{ p: 4, borderRadius: 3 }}>
+        <Grid container spacing={4}>
+          {/* Image Section */}
+          <Grid item xs={12} md={5}>
+            <CardMedia
+              component="img"
+              height="250"
+              image={IMG_URL + imageId}
+              alt={restaurantName}
+              sx={{ borderRadius: 2 }}
+            />
+          </Grid>
+
+          {/* Info Section */}
+          <Grid item xs={12} md={7}>
+            <Typography variant="h4" fontWeight="bold" gutterBottom>
+              {restaurantName}
+            </Typography>
+
+            <Typography variant="body1" color="text.secondary" gutterBottom>
+              {mainRestaurantInfo?.cuisines?.join(", ")}
+            </Typography>
+
+            <Typography variant="body2" sx={{ mt: 1 }}>
+              ⭐ Rating: {mainRestaurantInfo?.avgRatingString}
+            </Typography>
+
+            <Typography variant="body2">
+              💰 Cost for Two: {mainRestaurantInfo?.costForTwoMessage}
+            </Typography>
+
+            <Typography variant="body2">
+              🚚 Delivery Time: {mainRestaurantInfo?.sla?.slaString}
+            </Typography>
+
+            <Typography variant="body2" sx={{ mt: 2 }}>
+              📍 Address:{" "}
+              {
+                mainRestaurantInfo?.labels?.find(
+                  (label) => label.title === "Address"
+                )?.message
+              }
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+    </Container>
+  );
+};

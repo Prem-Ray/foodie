@@ -3,6 +3,7 @@ import { StyledNavbar, Stylednavitems } from "./Navbar.style";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
+import {Link} from 'react-router-dom' ;
 
 export const Title = () => {
   return <h2>Foodie</h2>;
@@ -11,9 +12,9 @@ export const Title = () => {
 export const Navitems = () => {
   return (
     <Stylednavitems>
-      <li>Home</li>
-      <li>About</li>
-      <li>Contact</li>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/about">About</Link></li>
+      <li><Link to="/contact">Contact</Link></li>
       <li>Cart</li>
     </Stylednavitems>
   );
