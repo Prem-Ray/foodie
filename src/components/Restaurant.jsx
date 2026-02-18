@@ -23,7 +23,7 @@ export const Restaurant = () => {
   async function getRestaurantInfo() {
     try {
       const data = await fetch(
-        `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.91080&lng=88.40010&restaurantId=${resId}`
+        `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.91080&lng=88.40010&restaurantId=${resId}`,
       );
 
       const response = await data.json();
@@ -33,13 +33,12 @@ export const Restaurant = () => {
     }
   }
 
-  const restaurantName =
-    restaurant?.data?.cards?.[0]?.card?.card?.text;
+  const restaurantName = restaurant?.data?.cards?.[0]?.card?.card?.text;
 
   const mainRestaurantInfoCard = restaurant?.data?.cards?.find(
     (cardWrapper) =>
       cardWrapper?.card?.card?.["@type"] ===
-      "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
+      "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
   );
 
   const mainRestaurantInfo = mainRestaurantInfoCard?.card?.card?.info;
@@ -94,7 +93,7 @@ export const Restaurant = () => {
               📍 Address:{" "}
               {
                 mainRestaurantInfo?.labels?.find(
-                  (label) => label.title === "Address"
+                  (label) => label.title === "Address",
                 )?.message
               }
             </Typography>
