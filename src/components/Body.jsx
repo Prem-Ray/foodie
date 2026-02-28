@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import { Shimmer } from "./Shimmer";
 import { Error } from "./Error";
 import EmptyResult from "./EmptyResult";
+import { Link } from "react-router-dom";
 
 export const StyledRestaurantCards = styled("div")(() => ({
   display: "grid",
@@ -129,10 +130,12 @@ export const Body = () => {
       ) : (
         <StyledRestaurantCards>
           {filteredRestaurants.map((restaurant) => (
+           <Link to={"/restaurant/"+restaurant?.info?.id}>
             <RestaurantCard
               key={restaurant?.info?.id}
               Restaurant={restaurant}
             />
+           </Link>
           ))}
         </StyledRestaurantCards>
       )}
