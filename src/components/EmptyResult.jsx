@@ -4,7 +4,7 @@ import SearchOffIcon from "@mui/icons-material/SearchOff";
 
 const EmptyResult = ({
   title = "No Results Found",
-  description = "We couldn’t find anything matching your search.",
+  description = "We couldn’t find anything matching your search",
   showAction = false,
   actionLabel = "Reset",
   onAction,

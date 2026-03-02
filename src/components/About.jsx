@@ -17,19 +17,16 @@ export const About = () => {
         </Typography>
 
         <Typography variant="body1" paragraph>
-          Welcome to <strong>Foodie</strong> — your ultimate destination for
-          discovering the best restaurants around you.
-        </Typography>
+  We continuously update our restaurant listings to ensure you get the most accurate and latest information.
+</Typography>
 
-        <Typography variant="body1" paragraph>
-          Our mission is simple: help food lovers explore amazing cuisines,
-          compare ratings, and find their perfect dining experience.
-        </Typography>
+<Typography variant="body1" paragraph>
+  Whether you're craving street food or fine dining, Foodie helps you discover delicious options in just a few clicks.
+</Typography>
 
-        <Typography variant="body1" paragraph>
-          Built using React and modern UI technologies, Foodie ensures a
-          seamless and responsive experience across all devices.
-        </Typography>
+<Typography variant="body1" paragraph>
+  Our goal is to make food exploration fun, simple, and enjoyable for everyone.
+</Typography>
 
         <Typography variant="h6" mt={3}>
           🚀 Features:
