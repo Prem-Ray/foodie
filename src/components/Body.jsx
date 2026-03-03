@@ -9,7 +9,7 @@ import { Error } from "./Error";
 import EmptyResult from "./EmptyResult";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/util";
-import useGeoLocation from "../hooks/useGeoLocation"
+import useGeoLocation from "../hooks/useGeoLocation";
 import useRestaurants from "../hooks/useRestaurants";
 
 export const StyledRestaurantCards = styled("div")(() => ({
@@ -29,18 +29,10 @@ export const StyledInputSection = styled("div")(({ theme }) => ({
 
 export const Body = () => {
   const [searchText, setSearchText] = useState("");
+  const { latitude, longitude } = useGeoLocation("");
+  const { restaurants, filteredRestaurants, hasError, isLoading } =
+    useRestaurants(latitude, longitude);
 
-  const {latitude,longitude} = useGeoLocation("")
-
-  const lat =22.91080 ;
-  const lng = 88.40010;
-
-  const {restaurants ,
-   filteredRestaurants,
-   hasError,
-   isLoading} = useRestaurants(latitude,longitude) ;
-
- 
   if (hasError) return <Error />;
   if (isLoading) return <Shimmer />;
 
@@ -92,13 +84,15 @@ export const Body = () => {
       ) : (
         <StyledRestaurantCards>
           {filteredRestaurants.map((restaurant) => (
-           <Link to={"/restaurant/"+restaurant?.info?.id} 
-             style={{ textDecoration: "none", color: "inherit" }}>
-            <RestaurantCard
-              key={restaurant?.info?.id}
-              Restaurant={restaurant}
-            />
-           </Link>
+            <Link
+              to={"/restaurant/" + restaurant?.info?.id}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <RestaurantCard
+                key={restaurant?.info?.id}
+                Restaurant={restaurant}
+              />
+            </Link>
           ))}
         </StyledRestaurantCards>
       )}
