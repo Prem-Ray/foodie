@@ -4,13 +4,20 @@ const useOnline = ()=>{
     const [isOnline,setIsOnline] = useState(true) ;
 
     useEffect(()=>{
-        window.addEventListener('online',()=>{
+        const checkOnline = ()=>{
             setIsOnline(true) ;
-        })
-
-        window.addEventListener('offline',()=>{
+        }
+        const checkOffline = ()=>{
             setIsOnline(false) ;
-        })
+        }
+        window.addEventListener('online',checkOnline)
+
+        window.addEventListener('offline',checkOffline)
+
+        return ()=>{
+            window.removeEventListener("online",checkOnline) ;
+            window.removeEventListener("offline",checkOffline) ;
+        }
     },[])
 
     return isOnline ;
