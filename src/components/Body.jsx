@@ -8,6 +8,9 @@ import { Shimmer } from "./Shimmer";
 import { Error } from "./Error";
 import EmptyResult from "./EmptyResult";
 import { Link } from "react-router-dom";
+import { filterData } from "../utils/util";
+import useGeoLocation from "../hooks/useGeoLocation"
+import useRestaurants from "../hooks/useRestaurants";
 
 export const StyledRestaurantCards = styled("div")(() => ({
   display: "grid",
@@ -24,61 +27,20 @@ export const StyledInputSection = styled("div")(({ theme }) => ({
   margin: "2rem 0",
 }));
 
-const filterData = (searchText, restaurants) => {
-  return restaurants.filter((restaurant) =>
-    restaurant?.info?.name?.toLowerCase().includes(searchText.toLowerCase()),
-  );
-};
-
 export const Body = () => {
-  const [restaurants, setRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [hasError, setHasError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    getRestaurantList();
-  }, []);
+  const {latitude,longitude} = useGeoLocation("")
 
-  async function getRestaurantList() {
-    try {
-      const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.91080&lng=88.40010&page_type=DESKTOP_WEB_LISTING",
-      );
-      const dataResponse = await response.json();
-      // console.log("FULL DATA:", dataResponse?.data?.cards);
-      //  const restaurants = dataResponse?.data?.cards
-      //   ?.map((card) =>
-      //     card?.card?.card?.gridElements?.infoWithStyle?.restaurants
-      //   )
-      //   ?.find(Boolean);
+  const lat =22.91080 ;
+  const lng = 88.40010;
 
-      // console.log("RESTAURANTS:", restaurants);
+  const {restaurants ,
+   filteredRestaurants,
+   hasError,
+   isLoading} = useRestaurants(latitude,longitude) ;
 
-      //  setRestaurants(restaurants || []);
-      // setFilteredRestaurants(restaurants || []);
-
-      const apiData1 = dataResponse?.data?.cards
-        ?.map(
-          (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants,
-        )
-        ?.find((res) => res && res.length > 0);
-
-      const apiData2 =
-        dataResponse?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants;
-
-      setFilteredRestaurants(apiData1 || []);
-      setRestaurants(apiData1 || []);
-    } catch (error) {
-      console.log("error", error);
-      setHasError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-  console.log(filteredRestaurants);
+ 
   if (hasError) return <Error />;
   if (isLoading) return <Shimmer />;
 

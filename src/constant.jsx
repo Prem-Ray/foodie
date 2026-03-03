@@ -1,5 +1,10 @@
 export const IMG_URL = "https://media-assets.swiggy.com/swiggy/image/upload/";
 
+export const FETCH_RESTAURANTS = (lat, lng) =>
+  `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&page_type=DESKTOP_WEB_LISTING`;
+
+export const FETCH_MENU_URL = (resId,latitude,longitude)=> `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${latitude}&lng=${longitude}&restaurantId=${resId}`;
+
 export const restaurantList = [
   {
     type: "restaurant",
@@ -2765,744 +2770,713 @@ export const restaurantList = [
       type: "WEBLINK",
     },
   },
-   {
-                                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                                        "info": {
-                                            "id": "419705",
-                                            "name": "Wow! Momo",
-                                            "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/17/0bf9f2c4-9bee-4c9a-b0f1-2c9a8f256048_419705.JPG",
-                                            "locality": "Hooghly",
-                                            "areaName": "Bandel",
-                                            "costForTwo": "₹300 for two",
-                                            "cuisines": [
-                                                "Momos",
-                                                "Chinese",
-                                                "fastfood",
-                                                "Asian",
-                                                "Beverages"
-                                            ],
-                                            "avgRating": 4.5,
-                                            "parentId": "1776",
-                                            "avgRatingString": "4.5",
-                                            "totalRatingsString": "3.1K+",
-                                            "sla": {
-                                                "deliveryTime": 22,
-                                                "lastMileTravel": 1.8,
-                                                "serviceability": "SERVICEABLE",
-                                                "slaString": "20-25 mins",
-                                                "lastMileTravelString": "1.8 km",
-                                                "iconType": "ICON_TYPE_EMPTY"
-                                            },
-                                            "availability": {
-                                                "nextCloseTime": "2026-02-10 23:00:00",
-                                                "opened": true
-                                            },
-                                            "badges": {
-                                                "imageBadges": [
-                                                    {
-                                                        "imageId": "Rxawards/_CATEGORY-Chinese.png",
-                                                        "description": "Delivery!"
-                                                    }
-                                                ]
-                                            },
-                                            "isOpen": true,
-                                            "type": "F",
-                                            "badgesV2": {
-                                                "entityBadges": {
-                                                    "imageBased": {
-                                                        "badgeObject": [
-                                                            {
-                                                                "attributes": {
-                                                                    "description": "Delivery!",
-                                                                    "imageId": "Rxawards/_CATEGORY-Chinese.png"
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "textBased": {},
-                                                    "textExtendedBadges": {}
-                                                }
-                                            },
-                                            "aggregatedDiscountInfoV3": {
-                                                "header": "ITEMS",
-                                                "subHeader": "AT ₹69"
-                                            },
-                                            "orderabilityCommunication": {
-                                                "title": {},
-                                                "subTitle": {},
-                                                "message": {},
-                                                "customIcon": {}
-                                            },
-                                            "differentiatedUi": {
-                                                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                                                "differentiatedUiMediaDetails": {
-                                                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                                                    "lottie": {},
-                                                    "video": {}
-                                                }
-                                            },
-                                            "reviewsSummary": {},
-                                            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                                            "restaurantOfferPresentationInfo": {},
-                                            "externalRatings": {
-                                                "aggregatedRating": {
-                                                    "rating": "--"
-                                                }
-                                            },
-                                            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                                        },
-                                        "analytics": {
-                                            "context": "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4"
-                                        },
-                                        "cta": {
-                                            "link": "https://www.swiggy.com/city/kolkata/wow-momo-hooghly-bandel-rest419705",
-                                            "text": "RESTAURANT_MENU",
-                                            "type": "WEBLINK"
-                                        },
-                                        "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-                                    },
-                                    {
-                                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                                        "info": {
-                                            "id": "167543",
-                                            "name": "Maa kamala hotel and restaurant",
-                                            "cloudinaryImageId": "ql2fwc3xpvb2c1eqajyw",
-                                            "locality": "BONDEL GT ROAD",
-                                            "areaName": "Chinsura",
-                                            "costForTwo": "₹250 for two",
-                                            "cuisines": [
-                                                "North Indian",
-                                                "Biryani",
-                                                "Chinese",
-                                                "Bengali"
-                                            ],
-                                            "avgRating": 4.1,
-                                            "parentId": "127747",
-                                            "avgRatingString": "4.1",
-                                            "totalRatingsString": "11K+",
-                                            "sla": {
-                                                "deliveryTime": 21,
-                                                "lastMileTravel": 1.9,
-                                                "serviceability": "SERVICEABLE",
-                                                "slaString": "20-25 mins",
-                                                "lastMileTravelString": "1.9 km",
-                                                "iconType": "ICON_TYPE_EMPTY"
-                                            },
-                                            "availability": {
-                                                "nextCloseTime": "2026-02-10 23:00:00",
-                                                "opened": true
-                                            },
-                                            "badges": {
-                                                "imageBadges": [
-                                                    {
-                                                        "imageId": "android/static-assets/icons/big_rx.png",
-                                                        "description": "bolt!"
-                                                    }
-                                                ]
-                                            },
-                                            "isOpen": true,
-                                            "type": "F",
-                                            "badgesV2": {
-                                                "entityBadges": {
-                                                    "imageBased": {
-                                                        "badgeObject": [
-                                                            {
-                                                                "attributes": {
-                                                                    "description": "bolt!",
-                                                                    "imageId": "android/static-assets/icons/big_rx.png"
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "textBased": {},
-                                                    "textExtendedBadges": {}
-                                                }
-                                            },
-                                            "aggregatedDiscountInfoV3": {
-                                                "header": "₹135 OFF",
-                                                "subHeader": "ABOVE ₹299",
-                                                "discountTag": "FLAT DEAL"
-                                            },
-                                            "orderabilityCommunication": {
-                                                "title": {},
-                                                "subTitle": {},
-                                                "message": {},
-                                                "customIcon": {}
-                                            },
-                                            "differentiatedUi": {
-                                                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                                                "differentiatedUiMediaDetails": {
-                                                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                                                    "lottie": {},
-                                                    "video": {}
-                                                }
-                                            },
-                                            "reviewsSummary": {},
-                                            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                                            "restaurantOfferPresentationInfo": {},
-                                            "externalRatings": {
-                                                "aggregatedRating": {
-                                                    "rating": "--"
-                                                }
-                                            },
-                                            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                                        },
-                                        "analytics": {
-                                            "context": "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4"
-                                        },
-                                        "cta": {
-                                            "link": "https://www.swiggy.com/city/kolkata/maa-kamala-hotel-and-restaurant-bondel-gt-road-chinsura-rest167543",
-                                            "text": "RESTAURANT_MENU",
-                                            "type": "WEBLINK"
-                                        },
-                                        "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-                                    },
-                                    {
-                                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                                        "info": {
-                                            "id": "447227",
-                                            "name": "Domino's Pizza",
-                                            "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/11/11/44120907-feac-4bd1-a3a0-e0f3c7c17164_447227.JPG",
-                                            "locality": "Chinsurah",
-                                            "areaName": "Dominos Only Kolkata",
-                                            "costForTwo": "₹400 for two",
-                                            "cuisines": [
-                                                "Pizzas",
-                                                "Italian",
-                                                "Pastas",
-                                                "Desserts"
-                                            ],
-                                            "avgRating": 4.5,
-                                            "parentId": "2456",
-                                            "avgRatingString": "4.5",
-                                            "totalRatingsString": "3.6K+",
-                                            "sla": {
-                                                "deliveryTime": 25,
-                                                "lastMileTravel": 4.1,
-                                                "serviceability": "SERVICEABLE",
-                                                "slaString": "20-25 mins",
-                                                "lastMileTravelString": "4.1 km",
-                                                "iconType": "ICON_TYPE_EMPTY"
-                                            },
-                                            "availability": {
-                                                "nextCloseTime": "2026-02-10 23:59:00",
-                                                "opened": true
-                                            },
-                                            "badges": {
-                                                "imageBadges": [
-                                                    {
-                                                        "imageId": "Rxawards/_CATEGORY-Pizza.png",
-                                                        "description": "Delivery!"
-                                                    }
-                                                ]
-                                            },
-                                            "isOpen": true,
-                                            "type": "F",
-                                            "badgesV2": {
-                                                "entityBadges": {
-                                                    "imageBased": {
-                                                        "badgeObject": [
-                                                            {
-                                                                "attributes": {
-                                                                    "description": "Delivery!",
-                                                                    "imageId": "Rxawards/_CATEGORY-Pizza.png"
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "textBased": {},
-                                                    "textExtendedBadges": {}
-                                                }
-                                            },
-                                            "aggregatedDiscountInfoV3": {
-                                                "header": "ITEMS",
-                                                "subHeader": "AT ₹69"
-                                            },
-                                            "orderabilityCommunication": {
-                                                "title": {},
-                                                "subTitle": {},
-                                                "message": {},
-                                                "customIcon": {}
-                                            },
-                                            "differentiatedUi": {
-                                                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                                                "differentiatedUiMediaDetails": {
-                                                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                                                    "lottie": {},
-                                                    "video": {}
-                                                }
-                                            },
-                                            "reviewsSummary": {},
-                                            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                                            "restaurantOfferPresentationInfo": {},
-                                            "externalRatings": {
-                                                "aggregatedRating": {
-                                                    "rating": "--"
-                                                }
-                                            },
-                                            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                                        },
-                                        "analytics": {
-                                            "context": "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4"
-                                        },
-                                        "cta": {
-                                            "link": "https://www.swiggy.com/city/kolkata/dominos-pizza-chinsurah-dominos-only-kolkata-rest447227",
-                                            "text": "RESTAURANT_MENU",
-                                            "type": "WEBLINK"
-                                        },
-                                        "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-                                    },
-                                    {
-                                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                                        "info": {
-                                            "id": "423152",
-                                            "name": "KFC",
-                                            "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2026/1/8/a34327d6-9a9b-490a-9d87-84d23e8e448c_423152.JPG",
-                                            "locality": "Padri Para Road",
-                                            "areaName": "Chandannagar",
-                                            "costForTwo": "₹400 for two",
-                                            "cuisines": [
-                                                "Burgers",
-                                                "Fast Food",
-                                                "Rolls & Wraps"
-                                            ],
-                                            "avgRating": 4.3,
-                                            "parentId": "547",
-                                            "avgRatingString": "4.3",
-                                            "totalRatingsString": "10K+",
-                                            "sla": {
-                                                "deliveryTime": 33,
-                                                "lastMileTravel": 8,
-                                                "serviceability": "SERVICEABLE",
-                                                "slaString": "30-35 mins",
-                                                "lastMileTravelString": "8.0 km",
-                                                "iconType": "ICON_TYPE_EMPTY"
-                                            },
-                                            "availability": {
-                                                "nextCloseTime": "2026-02-11 01:00:00",
-                                                "opened": true
-                                            },
-                                            "badges": {
-                                                "imageBadges": [
-                                                    {
-                                                        "imageId": "Rxawards/_CATEGORY-Burger.png",
-                                                        "description": "Delivery!"
-                                                    }
-                                                ]
-                                            },
-                                            "isOpen": true,
-                                            "type": "F",
-                                            "badgesV2": {
-                                                "entityBadges": {
-                                                    "imageBased": {
-                                                        "badgeObject": [
-                                                            {
-                                                                "attributes": {
-                                                                    "description": "Delivery!",
-                                                                    "imageId": "Rxawards/_CATEGORY-Burger.png"
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "textBased": {},
-                                                    "textExtendedBadges": {}
-                                                }
-                                            },
-                                            "aggregatedDiscountInfoV3": {
-                                                "header": "50% OFF",
-                                                "discountTag": "FLAT DEAL"
-                                            },
-                                            "orderabilityCommunication": {
-                                                "title": {},
-                                                "subTitle": {},
-                                                "message": {},
-                                                "customIcon": {}
-                                            },
-                                            "differentiatedUi": {
-                                                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                                                "differentiatedUiMediaDetails": {
-                                                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                                                    "lottie": {},
-                                                    "video": {}
-                                                }
-                                            },
-                                            "reviewsSummary": {},
-                                            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                                            "restaurantOfferPresentationInfo": {},
-                                            "externalRatings": {
-                                                "aggregatedRating": {
-                                                    "rating": "--"
-                                                }
-                                            },
-                                            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                                        },
-                                        "analytics": {
-                                            "context": "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4"
-                                        },
-                                        "cta": {
-                                            "link": "https://www.swiggy.com/city/kolkata/kfc-padri-para-road-chandannagar-rest423152",
-                                            "text": "RESTAURANT_MENU",
-                                            "type": "WEBLINK"
-                                        },
-                                        "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-                                    },
-                                    {
-                                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                                        "info": {
-                                            "id": "962667",
-                                            "name": "The Spicy Restaurant",
-                                            "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/9/26/48cbbd99-4ee5-416c-935b-eef578ee703a_962667.jpg",
-                                            "locality": "Chandannagar",
-                                            "areaName": "Akhan Bazar Chinsurah",
-                                            "costForTwo": "₹400 for two",
-                                            "cuisines": [
-                                                "Chinese",
-                                                "Biryani"
-                                            ],
-                                            "avgRating": 4.4,
-                                            "parentId": "564173",
-                                            "avgRatingString": "4.4",
-                                            "totalRatingsString": "1.5K+",
-                                            "sla": {
-                                                "deliveryTime": 18,
-                                                "lastMileTravel": 2.6,
-                                                "serviceability": "SERVICEABLE",
-                                                "slaString": "15-20 mins",
-                                                "lastMileTravelString": "2.6 km",
-                                                "iconType": "ICON_TYPE_EMPTY"
-                                            },
-                                            "availability": {
-                                                "nextCloseTime": "2026-02-10 22:30:00",
-                                                "opened": true
-                                            },
-                                            "badges": {
-                                                "imageBadges": [
-                                                    {
-                                                        "imageId": "android/static-assets/icons/big_rx.png",
-                                                        "description": "bolt!"
-                                                    }
-                                                ]
-                                            },
-                                            "isOpen": true,
-                                            "type": "F",
-                                            "badgesV2": {
-                                                "entityBadges": {
-                                                    "imageBased": {
-                                                        "badgeObject": [
-                                                            {
-                                                                "attributes": {
-                                                                    "description": "bolt!",
-                                                                    "imageId": "android/static-assets/icons/big_rx.png"
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "textBased": {},
-                                                    "textExtendedBadges": {}
-                                                }
-                                            },
-                                            "aggregatedDiscountInfoV3": {
-                                                "header": "ITEMS",
-                                                "subHeader": "AT ₹149"
-                                            },
-                                            "orderabilityCommunication": {
-                                                "title": {},
-                                                "subTitle": {},
-                                                "message": {},
-                                                "customIcon": {}
-                                            },
-                                            "differentiatedUi": {
-                                                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                                                "differentiatedUiMediaDetails": {
-                                                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                                                    "lottie": {},
-                                                    "video": {}
-                                                }
-                                            },
-                                            "reviewsSummary": {},
-                                            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                                            "restaurantOfferPresentationInfo": {},
-                                            "externalRatings": {
-                                                "aggregatedRating": {
-                                                    "rating": "--"
-                                                }
-                                            },
-                                            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                                        },
-                                        "analytics": {
-                                            "context": "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4"
-                                        },
-                                        "cta": {
-                                            "link": "https://www.swiggy.com/city/kolkata/the-spicy-restaurant-chandannagar-akhan-bazar-chinsurah-rest962667",
-                                            "text": "RESTAURANT_MENU",
-                                            "type": "WEBLINK"
-                                        },
-                                        "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-                                    },
-                                    {
-                                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                                        "info": {
-                                            "id": "144685",
-                                            "name": "The Treat",
-                                            "cloudinaryImageId": "alsthdznkxn35ipfhpgg",
-                                            "locality": "Bandel,Hooghly",
-                                            "areaName": "Bandel",
-                                            "costForTwo": "₹200 for two",
-                                            "cuisines": [
-                                                "South Indian",
-                                                "Beverages"
-                                            ],
-                                            "avgRating": 4.6,
-                                            "veg": true,
-                                            "parentId": "214868",
-                                            "avgRatingString": "4.6",
-                                            "totalRatingsString": "17K+",
-                                            "sla": {
-                                                "deliveryTime": 23,
-                                                "lastMileTravel": 2.4,
-                                                "serviceability": "SERVICEABLE",
-                                                "slaString": "20-25 mins",
-                                                "lastMileTravelString": "2.4 km",
-                                                "iconType": "ICON_TYPE_EMPTY"
-                                            },
-                                            "availability": {
-                                                "nextCloseTime": "2026-02-10 22:00:00",
-                                                "opened": true
-                                            },
-                                            "badges": {
-                                                "imageBadges": [
-                                                    {
-                                                        "imageId": "v1695133679/badges/Pure_Veg111.png",
-                                                        "description": "pureveg"
-                                                    }
-                                                ]
-                                            },
-                                            "isOpen": true,
-                                            "type": "F",
-                                            "badgesV2": {
-                                                "entityBadges": {
-                                                    "imageBased": {
-                                                        "badgeObject": [
-                                                            {
-                                                                "attributes": {
-                                                                    "description": "pureveg",
-                                                                    "imageId": "v1695133679/badges/Pure_Veg111.png"
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "textBased": {},
-                                                    "textExtendedBadges": {}
-                                                }
-                                            },
-                                            "aggregatedDiscountInfoV3": {
-                                                "header": "ITEMS",
-                                                "subHeader": "AT ₹69"
-                                            },
-                                            "orderabilityCommunication": {
-                                                "title": {},
-                                                "subTitle": {},
-                                                "message": {},
-                                                "customIcon": {}
-                                            },
-                                            "differentiatedUi": {
-                                                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                                                "differentiatedUiMediaDetails": {
-                                                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                                                    "lottie": {},
-                                                    "video": {}
-                                                }
-                                            },
-                                            "reviewsSummary": {},
-                                            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                                            "restaurantOfferPresentationInfo": {},
-                                            "externalRatings": {
-                                                "aggregatedRating": {
-                                                    "rating": "--"
-                                                }
-                                            },
-                                            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                                        },
-                                        "analytics": {
-                                            "context": "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4"
-                                        },
-                                        "cta": {
-                                            "link": "https://www.swiggy.com/city/kolkata/the-treat-hooghly-bandel-rest144685",
-                                            "text": "RESTAURANT_MENU",
-                                            "type": "WEBLINK"
-                                        },
-                                        "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-                                    },
-                                    {
-                                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                                        "info": {
-                                            "id": "583580",
-                                            "name": "Cakermon",
-                                            "cloudinaryImageId": "i4p1ghlmet1rinppw79i",
-                                            "locality": "Bandel",
-                                            "areaName": "Chinsurahmogra",
-                                            "costForTwo": "₹200 for two",
-                                            "cuisines": [
-                                                "Bakery",
-                                                "Desserts",
-                                                "Snacks"
-                                            ],
-                                            "avgRating": 4.3,
-                                            "parentId": "338983",
-                                            "avgRatingString": "4.3",
-                                            "totalRatingsString": "524",
-                                            "sla": {
-                                                "deliveryTime": 16,
-                                                "lastMileTravel": 2.1,
-                                                "serviceability": "SERVICEABLE",
-                                                "slaString": "15-20 mins",
-                                                "lastMileTravelString": "2.1 km",
-                                                "iconType": "ICON_TYPE_EMPTY"
-                                            },
-                                            "availability": {
-                                                "nextCloseTime": "2026-02-10 23:00:00",
-                                                "opened": true
-                                            },
-                                            "badges": {
-                                                "imageBadges": [
-                                                    {
-                                                        "imageId": "android/static-assets/icons/big_rx.png",
-                                                        "description": "bolt!"
-                                                    }
-                                                ]
-                                            },
-                                            "isOpen": true,
-                                            "aggregatedDiscountInfoV2": {},
-                                            "type": "F",
-                                            "badgesV2": {
-                                                "entityBadges": {
-                                                    "imageBased": {
-                                                        "badgeObject": [
-                                                            {
-                                                                "attributes": {
-                                                                    "description": "bolt!",
-                                                                    "imageId": "android/static-assets/icons/big_rx.png"
-                                                                }
-                                                            }
-                                                        ]
-                                                    },
-                                                    "textBased": {},
-                                                    "textExtendedBadges": {}
-                                                }
-                                            },
-                                            "orderabilityCommunication": {
-                                                "title": {},
-                                                "subTitle": {},
-                                                "message": {},
-                                                "customIcon": {}
-                                            },
-                                            "differentiatedUi": {
-                                                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                                                "differentiatedUiMediaDetails": {
-                                                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                                                    "lottie": {},
-                                                    "video": {}
-                                                }
-                                            },
-                                            "reviewsSummary": {},
-                                            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                                            "restaurantOfferPresentationInfo": {},
-                                            "externalRatings": {
-                                                "aggregatedRating": {
-                                                    "rating": "--"
-                                                }
-                                            },
-                                            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                                        },
-                                        "analytics": {
-                                            "context": "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4"
-                                        },
-                                        "cta": {
-                                            "link": "https://www.swiggy.com/city/kolkata/cakermon-bandel-chinsurahmogra-rest583580",
-                                            "text": "RESTAURANT_MENU",
-                                            "type": "WEBLINK"
-                                        },
-                                        "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-                                    },
-                                    {
-                                        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                                        "info": {
-                                            "id": "1284315",
-                                            "name": "IFC Restaurant",
-                                            "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/12/11/724c38e2-bc0d-4f71-99c8-e047c15b598a_1284315.jpg",
-                                            "locality": "Chandannagar",
-                                            "areaName": "Chandannagar",
-                                            "costForTwo": "₹300 for two",
-                                            "cuisines": [
-                                                "Beverages",
-                                                "Snacks",
-                                                "Pizzas",
-                                                "Fast Food",
-                                                "Burgers"
-                                            ],
-                                            "avgRating": 4.5,
-                                            "parentId": "4051",
-                                            "avgRatingString": "4.5",
-                                            "totalRatingsString": "12",
-                                            "sla": {
-                                                "deliveryTime": 28,
-                                                "lastMileTravel": 1.9,
-                                                "serviceability": "SERVICEABLE",
-                                                "slaString": "25-30 mins",
-                                                "lastMileTravelString": "1.9 km",
-                                                "iconType": "ICON_TYPE_EMPTY"
-                                            },
-                                            "availability": {
-                                                "nextCloseTime": "2026-02-10 22:00:00",
-                                                "opened": true
-                                            },
-                                            "badges": {},
-                                            "isOpen": true,
-                                            "type": "F",
-                                            "badgesV2": {
-                                                "entityBadges": {
-                                                    "imageBased": {},
-                                                    "textBased": {},
-                                                    "textExtendedBadges": {}
-                                                }
-                                            },
-                                            "aggregatedDiscountInfoV3": {
-                                                "header": "70% OFF",
-                                                "subHeader": "UPTO ₹140"
-                                            },
-                                            "orderabilityCommunication": {
-                                                "title": {},
-                                                "subTitle": {},
-                                                "message": {},
-                                                "customIcon": {}
-                                            },
-                                            "differentiatedUi": {
-                                                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                                                "differentiatedUiMediaDetails": {
-                                                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                                                    "lottie": {},
-                                                    "video": {}
-                                                }
-                                            },
-                                            "reviewsSummary": {},
-                                            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                                            "isNewlyOnboarded": true,
-                                            "restaurantOfferPresentationInfo": {},
-                                            "externalRatings": {
-                                                "aggregatedRating": {
-                                                    "rating": "--"
-                                                }
-                                            },
-                                            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                                        },
-                                        "analytics": {
-                                            "context": "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4"
-                                        },
-                                        "cta": {
-                                            "link": "https://www.swiggy.com/city/kolkata/ifc-restaurant-chandannagar-rest1284315",
-                                            "text": "RESTAURANT_MENU",
-                                            "type": "WEBLINK"
-                                        },
-                                        "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
-                                    },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "419705",
+      name: "Wow! Momo",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/17/0bf9f2c4-9bee-4c9a-b0f1-2c9a8f256048_419705.JPG",
+      locality: "Hooghly",
+      areaName: "Bandel",
+      costForTwo: "₹300 for two",
+      cuisines: ["Momos", "Chinese", "fastfood", "Asian", "Beverages"],
+      avgRating: 4.5,
+      parentId: "1776",
+      avgRatingString: "4.5",
+      totalRatingsString: "3.1K+",
+      sla: {
+        deliveryTime: 22,
+        lastMileTravel: 1.8,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "1.8 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2026-02-10 23:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "Rxawards/_CATEGORY-Chinese.png",
+            description: "Delivery!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Delivery!",
+                  imageId: "Rxawards/_CATEGORY-Chinese.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹69",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/kolkata/wow-momo-hooghly-bandel-rest419705",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "167543",
+      name: "Maa kamala hotel and restaurant",
+      cloudinaryImageId: "ql2fwc3xpvb2c1eqajyw",
+      locality: "BONDEL GT ROAD",
+      areaName: "Chinsura",
+      costForTwo: "₹250 for two",
+      cuisines: ["North Indian", "Biryani", "Chinese", "Bengali"],
+      avgRating: 4.1,
+      parentId: "127747",
+      avgRatingString: "4.1",
+      totalRatingsString: "11K+",
+      sla: {
+        deliveryTime: 21,
+        lastMileTravel: 1.9,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "1.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2026-02-10 23:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "android/static-assets/icons/big_rx.png",
+            description: "bolt!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "bolt!",
+                  imageId: "android/static-assets/icons/big_rx.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "₹135 OFF",
+        subHeader: "ABOVE ₹299",
+        discountTag: "FLAT DEAL",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/kolkata/maa-kamala-hotel-and-restaurant-bondel-gt-road-chinsura-rest167543",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "447227",
+      name: "Domino's Pizza",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/11/11/44120907-feac-4bd1-a3a0-e0f3c7c17164_447227.JPG",
+      locality: "Chinsurah",
+      areaName: "Dominos Only Kolkata",
+      costForTwo: "₹400 for two",
+      cuisines: ["Pizzas", "Italian", "Pastas", "Desserts"],
+      avgRating: 4.5,
+      parentId: "2456",
+      avgRatingString: "4.5",
+      totalRatingsString: "3.6K+",
+      sla: {
+        deliveryTime: 25,
+        lastMileTravel: 4.1,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "4.1 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2026-02-10 23:59:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "Rxawards/_CATEGORY-Pizza.png",
+            description: "Delivery!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Delivery!",
+                  imageId: "Rxawards/_CATEGORY-Pizza.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹69",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/kolkata/dominos-pizza-chinsurah-dominos-only-kolkata-rest447227",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "423152",
+      name: "KFC",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2026/1/8/a34327d6-9a9b-490a-9d87-84d23e8e448c_423152.JPG",
+      locality: "Padri Para Road",
+      areaName: "Chandannagar",
+      costForTwo: "₹400 for two",
+      cuisines: ["Burgers", "Fast Food", "Rolls & Wraps"],
+      avgRating: 4.3,
+      parentId: "547",
+      avgRatingString: "4.3",
+      totalRatingsString: "10K+",
+      sla: {
+        deliveryTime: 33,
+        lastMileTravel: 8,
+        serviceability: "SERVICEABLE",
+        slaString: "30-35 mins",
+        lastMileTravelString: "8.0 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2026-02-11 01:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "Rxawards/_CATEGORY-Burger.png",
+            description: "Delivery!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "Delivery!",
+                  imageId: "Rxawards/_CATEGORY-Burger.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "50% OFF",
+        discountTag: "FLAT DEAL",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/kolkata/kfc-padri-para-road-chandannagar-rest423152",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "962667",
+      name: "The Spicy Restaurant",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2024/9/26/48cbbd99-4ee5-416c-935b-eef578ee703a_962667.jpg",
+      locality: "Chandannagar",
+      areaName: "Akhan Bazar Chinsurah",
+      costForTwo: "₹400 for two",
+      cuisines: ["Chinese", "Biryani"],
+      avgRating: 4.4,
+      parentId: "564173",
+      avgRatingString: "4.4",
+      totalRatingsString: "1.5K+",
+      sla: {
+        deliveryTime: 18,
+        lastMileTravel: 2.6,
+        serviceability: "SERVICEABLE",
+        slaString: "15-20 mins",
+        lastMileTravelString: "2.6 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2026-02-10 22:30:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "android/static-assets/icons/big_rx.png",
+            description: "bolt!",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "bolt!",
+                  imageId: "android/static-assets/icons/big_rx.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹149",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/kolkata/the-spicy-restaurant-chandannagar-akhan-bazar-chinsurah-rest962667",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "144685",
+      name: "The Treat",
+      cloudinaryImageId: "alsthdznkxn35ipfhpgg",
+      locality: "Bandel,Hooghly",
+      areaName: "Bandel",
+      costForTwo: "₹200 for two",
+      cuisines: ["South Indian", "Beverages"],
+      avgRating: 4.6,
+      veg: true,
+      parentId: "214868",
+      avgRatingString: "4.6",
+      totalRatingsString: "17K+",
+      sla: {
+        deliveryTime: 23,
+        lastMileTravel: 2.4,
+        serviceability: "SERVICEABLE",
+        slaString: "20-25 mins",
+        lastMileTravelString: "2.4 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2026-02-10 22:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "v1695133679/badges/Pure_Veg111.png",
+            description: "pureveg",
+          },
+        ],
+      },
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "pureveg",
+                  imageId: "v1695133679/badges/Pure_Veg111.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "ITEMS",
+        subHeader: "AT ₹69",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/kolkata/the-treat-hooghly-bandel-rest144685",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "583580",
+      name: "Cakermon",
+      cloudinaryImageId: "i4p1ghlmet1rinppw79i",
+      locality: "Bandel",
+      areaName: "Chinsurahmogra",
+      costForTwo: "₹200 for two",
+      cuisines: ["Bakery", "Desserts", "Snacks"],
+      avgRating: 4.3,
+      parentId: "338983",
+      avgRatingString: "4.3",
+      totalRatingsString: "524",
+      sla: {
+        deliveryTime: 16,
+        lastMileTravel: 2.1,
+        serviceability: "SERVICEABLE",
+        slaString: "15-20 mins",
+        lastMileTravelString: "2.1 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2026-02-10 23:00:00",
+        opened: true,
+      },
+      badges: {
+        imageBadges: [
+          {
+            imageId: "android/static-assets/icons/big_rx.png",
+            description: "bolt!",
+          },
+        ],
+      },
+      isOpen: true,
+      aggregatedDiscountInfoV2: {},
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {
+            badgeObject: [
+              {
+                attributes: {
+                  description: "bolt!",
+                  imageId: "android/static-assets/icons/big_rx.png",
+                },
+              },
+            ],
+          },
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/kolkata/cakermon-bandel-chinsurahmogra-rest583580",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
+  {
+    "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+    info: {
+      id: "1284315",
+      name: "IFC Restaurant",
+      cloudinaryImageId:
+        "RX_THUMBNAIL/IMAGES/VENDOR/2025/12/11/724c38e2-bc0d-4f71-99c8-e047c15b598a_1284315.jpg",
+      locality: "Chandannagar",
+      areaName: "Chandannagar",
+      costForTwo: "₹300 for two",
+      cuisines: ["Beverages", "Snacks", "Pizzas", "Fast Food", "Burgers"],
+      avgRating: 4.5,
+      parentId: "4051",
+      avgRatingString: "4.5",
+      totalRatingsString: "12",
+      sla: {
+        deliveryTime: 28,
+        lastMileTravel: 1.9,
+        serviceability: "SERVICEABLE",
+        slaString: "25-30 mins",
+        lastMileTravelString: "1.9 km",
+        iconType: "ICON_TYPE_EMPTY",
+      },
+      availability: {
+        nextCloseTime: "2026-02-10 22:00:00",
+        opened: true,
+      },
+      badges: {},
+      isOpen: true,
+      type: "F",
+      badgesV2: {
+        entityBadges: {
+          imageBased: {},
+          textBased: {},
+          textExtendedBadges: {},
+        },
+      },
+      aggregatedDiscountInfoV3: {
+        header: "70% OFF",
+        subHeader: "UPTO ₹140",
+      },
+      orderabilityCommunication: {
+        title: {},
+        subTitle: {},
+        message: {},
+        customIcon: {},
+      },
+      differentiatedUi: {
+        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        differentiatedUiMediaDetails: {
+          mediaType: "ADS_MEDIA_ENUM_IMAGE",
+          lottie: {},
+          video: {},
+        },
+      },
+      reviewsSummary: {},
+      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      isNewlyOnboarded: true,
+      restaurantOfferPresentationInfo: {},
+      externalRatings: {
+        aggregatedRating: {
+          rating: "--",
+        },
+      },
+      ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+    },
+    analytics: {
+      context: "seo-data-d68c7d5b-9371-43b7-9c18-e705cbab19e4",
+    },
+    cta: {
+      link: "https://www.swiggy.com/city/kolkata/ifc-restaurant-chandannagar-rest1284315",
+      text: "RESTAURANT_MENU",
+      type: "WEBLINK",
+    },
+    widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
+  },
 ];

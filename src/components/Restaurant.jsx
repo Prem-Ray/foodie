@@ -15,27 +15,13 @@ import {
   Divider,
 } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
+import useRestaurantMenu from "../hooks/useRestaurantMenu";
+import  useGeoLocation  from "../hooks/useGeoLocation";
 
 export const Restaurant = () => {
   const { resId } = useParams();
-  const [restaurant, setRestaurant] = useState(null);
-
-  useEffect(() => {
-    getRestaurantInfo();
-  }, [resId]);
-
-  async function getRestaurantInfo() {
-    try {
-      const data = await fetch(
-        `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.91080&lng=88.40010&restaurantId=${resId}`,
-      );
-
-      const response = await data.json();
-      setRestaurant(response);
-    } catch (error) {
-      console.error("Error fetching restaurant:", error);
-    }
-  }
+  const {latitude,longitude} = useGeoLocation() ;
+  const restaurant = useRestaurantMenu(resId,latitude,longitude);
 
   if (!restaurant) {
     return (
