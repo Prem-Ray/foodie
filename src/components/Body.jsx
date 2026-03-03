@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import { filterData } from "../utils/util";
 import useGeoLocation from "../hooks/useGeoLocation";
 import useRestaurants from "../hooks/useRestaurants";
+import useOnline from "../hooks/useOnline";
+import OfflineCard from "./OfflineCard";
 
 export const StyledRestaurantCards = styled("div")(() => ({
   display: "grid",
@@ -32,7 +34,9 @@ export const Body = () => {
   const { latitude, longitude } = useGeoLocation("");
   const { restaurants, filteredRestaurants, hasError, isLoading } =
     useRestaurants(latitude, longitude);
-
+  const isOnline = useOnline() ;
+  
+  if(!isOnline) return <OfflineCard/>
   if (hasError) return <Error />;
   if (isLoading) return <Shimmer />;
 
