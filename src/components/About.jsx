@@ -1,7 +1,7 @@
 import { Box, Typography, Container, Paper } from "@mui/material";
 import { Navbar } from "./Navbar";
 
-export const About = () => {
+const About = () => {
   return (
     <>
     <Container maxWidth="md" sx={{ mt: 6, mb: 6 }}>
@@ -47,3 +47,6 @@ export const About = () => {
      </>
   );
 };
+
+
+export default About ;
