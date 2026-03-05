@@ -90,6 +90,7 @@ export const Body = () => {
           {filteredRestaurants.map((restaurant) => (
             <Link
               to={"/restaurant/" + restaurant?.info?.id}
+              key={restaurant?.info?.id}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <RestaurantCard
