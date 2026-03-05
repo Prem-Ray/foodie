@@ -32,7 +32,7 @@ export const StyledInputSection = styled("div")(({ theme }) => ({
 export const Body = () => {
   const [searchText, setSearchText] = useState("");
   const { latitude, longitude } = useGeoLocation("");
-  const { restaurants, filteredRestaurants, hasError, isLoading } =
+  const { restaurants, filteredRestaurants, setFilteredRestaurants, hasError, isLoading } =
     useRestaurants(latitude, longitude);
   const isOnline = useOnline() ;
   

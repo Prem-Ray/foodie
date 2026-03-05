@@ -51,6 +51,7 @@ const useRestaurants = (lat, lng) => {
   return {
    restaurants ,
    filteredRestaurants,
+   setFilteredRestaurants,
    hasError,
    isLoading,
   }
