@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { styled } from "@mui/material/styles";
 import { Body } from "./components/Body";
-import { Footer } from "./components/Footer";
+import { Footer } from "./components/Footer/Footer";
 import { Error } from "./components/Error";
 import { Contact } from "./components/Contact";
 import { Restaurant } from "./components/Restaurant";

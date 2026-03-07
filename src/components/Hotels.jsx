@@ -14,7 +14,6 @@ import {
   Stack
 } from "@mui/material";
 
-// 1. Create some mock data to map through
 const hotelData = [
   {
     id: 1,
