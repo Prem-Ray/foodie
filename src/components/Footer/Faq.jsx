@@ -1,81 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Typography,
   Accordion,
   AccordionSummary,
-  AccordionDetails
+  AccordionDetails,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const Faq = () => {
+export const Faqsection = ({
+  title,
+  descrtiption,
+  sectionKey,
+  isVisible,
+  setIsVisible,
+}) => {
   return (
-    <Container maxWidth="md" sx={{ mt: 6, mb: 6 }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Frequently Asked Questions
-      </Typography>
+    <>
+      <h3>{title}</h3>
+      {isVisible ? (
+        <>
+          <button
+            style={{ cursor: "pointer" }}
+            onClick={() => setIsVisible("")}
+          >
+            Hide
+          </button>
+          <p>{descrtiption}</p>
+        </>
+      ) : (
+        <button
+          style={{ cursor: "pointer" }}
+          onClick={() => setIsVisible(sectionKey)}
+        >
+          Show
+        </button>
+      )}
+    </>
+  );
+};
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>How do I place an order?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Browse restaurants or dishes, add items to your cart, and proceed
-            to checkout. After selecting your payment method, confirm your
-            order to start delivery.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+const Faq = () => {
+  const [isVisible, setIsVisible] = useState("about");
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>What payment methods are accepted?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            We accept credit cards, debit cards, UPI, digital wallets, and cash
-            on delivery depending on your location.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+  return (
+    <>
+      <Faqsection
+        title={"About Instamart"}
+        descrtiption={
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+        sectionKey="about"
+        isVisible={isVisible === "about"}
+        setIsVisible={setIsVisible}
+      />
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>How can I track my order?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            After placing an order, you can track it from the Orders section
-            where you will see live updates about preparation and delivery.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      <Faqsection
+        title={"How do I place an order?"}
+        descrtiption={
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+        sectionKey="placedOrder"
+        isVisible={isVisible === "placedOrder"}
+        setIsVisible={setIsVisible}
+      />
 
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>Can I cancel or modify my order?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Orders can be cancelled or modified within a short time after
-            placing them, before the restaurant starts preparing the food.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>What should I do if my order is late?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            If your order is delayed, please contact customer support through
-            the Help Center and we will assist you immediately.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-    </Container>
+      <Faqsection
+        title={"How do I cancel or modify my order?"}
+        descrtiption={
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+        sectionKey="cancelOrder"
+        isVisible={isVisible === "cancelOrder"}
+        setIsVisible={setIsVisible}
+      />
+    </>
   );
 };
 
