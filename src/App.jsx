@@ -9,6 +9,7 @@ import { Contact } from "./components/Contact";
 import { Restaurant } from "./components/Restaurant";
 import { Shimmer } from "./components/Shimmer";
 import { Box, CircularProgress } from "@mui/material";
+import AppContext from "./context/AppContext";
 
 export const PageContainer = styled("div")(() => ({
   minHeight: "100vh",
@@ -23,12 +24,18 @@ const Hotels = lazy(() => import("./components/Hotels"));
 const About = lazy(() => import("./components/About"));
 
 function AppLayout() {
+  const user = {
+    name: "foodie",
+    email: "premanshuray981@gmail.com"
+  };
   return (
-    <PageContainer>
-      <Navbar />
-      <Outlet />
-      <Footer />
-    </PageContainer>
+    <AppContext.Provider value={{user}}>
+      <PageContainer>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </PageContainer>
+    </AppContext.Provider>
   );
 }
 
@@ -46,7 +53,7 @@ const appRouter = createBrowserRouter([
 
       {
         path: "/about",
-        element: 
+        element: (
           <Suspense
             fallback={
               <Box
@@ -63,7 +70,7 @@ const appRouter = createBrowserRouter([
           >
             <About />
           </Suspense>
-        ,
+        ),
         errorElement: <Error />,
       },
       {

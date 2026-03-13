@@ -1,7 +1,11 @@
 import { Box, Container, Grid, Typography, Link } from "@mui/material";
 import Faq from "./Faq";
+import { useContext } from "react";
+import AppContext from "../../context/AppContext";
 
 export const Footer = () => {
+  const data = useContext(AppContext) ;
+  
   return (
     <Box sx={{ bgcolor: "#f5f5f5", mt: 6, pt: 4 }}>
       <Container maxWidth="lg">
@@ -53,6 +57,15 @@ export const Footer = () => {
             </Typography>
           </Grid>
 
+         {/* contact Section */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" gutterBottom>
+              Contact
+            </Typography>
+            <Typography>
+              <Link href="#" underline="none">{data.user.email}</Link>
+            </Typography>
+          </Grid>
         </Grid>
 
         {/* FAQ Section */}

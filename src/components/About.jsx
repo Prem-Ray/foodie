@@ -1,7 +1,9 @@
 import { Box, Typography, Container, Paper } from "@mui/material";
-import { Navbar } from "./Navbar";
+import { useContext } from "react";
+import AppContext from "../context/AppContext";
 
 const About = () => {
+  const data = useContext(AppContext) ;
   return (
     <>
     <Container maxWidth="md" sx={{ mt: 6, mb: 6 }}>
@@ -13,7 +15,7 @@ const About = () => {
         }}
       >
         <Typography variant="h4" fontWeight="bold" gutterBottom>
-          About Foodie 🍽️
+          Welcome to {data.user.name}
         </Typography>
 
         <Typography variant="body1" paragraph>
